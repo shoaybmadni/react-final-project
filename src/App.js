@@ -1,8 +1,10 @@
 import './App.css';
+import AddNewTask from './Components/AddNewTask';
 
 function App() {
   return (
     <>
+      <AddNewTask/>
     </>
   );
 }
