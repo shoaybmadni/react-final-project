@@ -23,21 +23,7 @@ const FetchData = () => {
 
   return (
     <>
-      {todos.map((todos) => (
-            <div className="task-card" key={todos.id}>
-              <div className="task-div">
-                <span className='todo-text'>{todos.title}</span>
-              </div>
-              <div className="btn-div">
-                <button className='btn'>
-                  Complete
-                </button>
-                <button className="btn">
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
+      
     </>
   )
 }
