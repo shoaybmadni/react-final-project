@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './AddNewTask.css';
 
 const AddNewTask = () => {
@@ -8,12 +9,25 @@ const AddNewTask = () => {
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then(res => {
+        localStorage.setItem('tasks', JSON.stringify(res.data))
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
+  useEffect(() => {
     getLocalTodos();
   }, [])
 
   useEffect(() => {
-    todoFilterHandler();
     saveLocalTodos();
+  }, [addTodo])
+
+  useEffect(() => {
+    todoFilterHandler();
   }, [addTodo, status]);
 
 
